@@ -268,7 +268,7 @@ update: (output, domEl)->
     Sunrise+="0" if Sunrise_s.toFixed(2).toString().length==4
     Sunrise+=Sunrise_s.toFixed(2)
 
-    jscontent+="<tr><td> Aufgang :</td><td>"+Sunrise+"</td></tr>" #🌍
+    jscontent+="<tr><td>Aufgang:</td><td>"+Sunrise+"</td></tr>" #🌍
 
 
     ## Sunset ##

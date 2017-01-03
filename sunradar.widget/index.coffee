@@ -6,24 +6,32 @@
 # http://www.pveducation.org/pvcdrom/properties-of-sunlight/suns-position & /elevation-angle
 #
 
-### Everything likely to be changed are marked with a star (⭐️ there should be 6 of them) ###
-### Alles, was zu ändern ist, wurde mit einem Stern (⭐️) gekennzeichnet (es sollten 6 sein) ###
-### 変更するべき箇所には星印(⭐️)をつけました。6つあるかと思います。 ###
+### The earth-sign (🌍) marks language-switches, for the case you want to translate user-visible parts to your language. ###
 
+#⭐️ Language setting / Spracheinstellung / 言語設定
+# "en" / "de" / "ja"
+language: "en"
 
-### The earth-sign (🌍) marks language-switches and should only bother you if you want to translate user-visible parts ###
+#⭐️ Set coordinates automatically / Koordinaten automatisch herausfinden / 緯度経度を自動検出
+# "auto" / "manual"
+findCoords: "auto"
 
+#⭐️ Longitude (if set to manual) / Geographische Länge (falls auf manuell gestellt) / 経度（自動検出しない場合）
+# negative at long. west / negativ bei westl. Länge / 西経は値が負になります
+longitude: 40
 
-language: "en" #⭐️ 日本語: "ja", deutsch: "de", english: "en" or else.
+#⭐️ Latitude (if set to manual) / Geographische Länge (falls auf manuell gestellt) / 経度（自動検出しない場合）
+# negative at lat. south / negativ bei südl. Breite  / 南緯は値が腑になります
+latitude: -80
 
-longitude: 40 #⭐️ negative at west / westl. Länge: negativ / 西経は負の値
-latitude: -80 #⭐️ negative at south / südl. Breite: negativ / 南緯は負の値
-
-radius_svg: 72 #⭐️radius of radar / Radius des Radars / レーダーの半径
+#⭐️ Radius of the radar / Radius des Radars / レーダーの半径
+radius_svg: 72
 
 style: """
-  top: 40% //⭐️top margin / Abstand nach oben / 上の余白
-  left: 250px //⭐️left margin / Abstand nach links / 左の余白
+  //⭐️ margin top / Abstand nach oben / 上の余白
+  top: 40%
+  //⭐️ margin left / Abstand nach links / 左の余白
+  left: 250px
   background: rgba(#fff, 0.6)
   color: rgba(#000, 0.8)
   font-family: "Helvetica-light"
@@ -54,7 +62,7 @@ style: """
     display: none
 """
 
-
+######################################################################
 
 command: """
   echo -n '{'
@@ -89,7 +97,7 @@ command: """
 
 refreshFrequency: 1000
 
-
+######################################################################
 
 render: (output)->"""
 <!--#{output}-->
@@ -135,9 +143,14 @@ render: (output)->"""
 </svg>
 """
 
-
+######################################################################
 
 afterRender: (domEl)->
+  if @findCoords == "auto"
+    geolocation.getCurrentPosition (e) =>
+      coords     = e.position.coords
+      [@latitude, @longitude] = [coords.latitude, coords.longitude]
+
   ### SVG plot (static) ###
   dom=$(domEl)
   r=@radius_svg
@@ -178,7 +191,7 @@ afterRender: (domEl)->
     else
       dom.find(".lang#en")[0].style.display="inline"
 
-
+######################################################################
 
 update: (output, domEl)->
   dom=$(domEl)

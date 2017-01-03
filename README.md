@@ -13,9 +13,9 @@ An [Uebersicht](http://tracesof.net/uebersicht/) Widget displaying:
 - Sunset time
 
 Preferences to be set by the user:
-- language (Currecntly available in English, Japanese and German)
-- coordinates (long/lat)
+- language (Currently available in English, Japanese and German)
+- coordinates (optionally)
 - radius of the radar
 - position of the widget (top/left margin)
 
-The point marking the sun turns blue when the altitude is negative.
+The small circle marking the sun turns blue when the altitude is negative.

@@ -31,7 +31,7 @@ style: """
   //⭐️ margin top / Abstand nach oben / 上の余白
   top: 40%
   //⭐️ margin left / Abstand nach links / 左の余白
-  left: 250px
+  left: 50px
   background: rgba(#fff, 0.6)
   color: rgba(#000, 0.8)
   font-family: "Helvetica-light"
@@ -258,7 +258,7 @@ update: (output, domEl)->
       jscontent+="<tr><td>タイムゾーン</td><td>GMT"+diffgmt+"</td></tr>"
       jscontent+="<tr><td>緯度経度</td><td>"+Math.abs(Math.round(@latitude))+n__s+Math.abs(Math.round(@longitude))+e__w+"</td></tr>"
     else
-      jscontent+="<tr><td>D since NYear:</td><td>"+(obj.d-1)+"</td></tr>"
+      jscontent+="<tr><td>D since NYear:</td><td>"+obj.d+"</td></tr>"
       jscontent+="<tr><td>Timezone:</td><td>GMT"+diffgmt+"</td></tr>"
       jscontent+="<tr><td>Coordinates:</td><td>"+Math.abs(Math.round(@latitude))+n__s+Math.abs(Math.round(@longitude))+e__w+"</td></tr>"
   #jscontent+="<tr><td>B(Decl/EoT)</td><td>"+B.toFixed(14)+"</td></tr>"

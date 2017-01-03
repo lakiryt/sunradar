@@ -9,8 +9,10 @@
 ### Everything likely to be changed are marked with a star (⭐️ there should be 5 of them). ###
 ### The earth-sign (🌍) marks passages that could be translated, if someone wants to. ###
 
-longitude: -71 #⭐️longitude at your place; negative in west
-latitude: 42 #⭐️latitude at your place; negative in south
+findCoords: "manually" #⭐️ "auto" to find coordinates automatically.
+
+longitude: -71 #⭐️longitude at your place (if set to manual); negative in long. west
+latitude: 42 #⭐️latitude at your place (if set to manual); negative in lat. south
 
 radius_svg: 72 #⭐️radius of the radar in pixel
 
@@ -123,6 +125,12 @@ render: (output)->"""
 
 
 afterRender: (domEl)->
+  ## Find cordinates automatically ##
+  if @findCoords == "auto"
+    geolocation.getCurrentPosition (e) =>
+      coords     = e.position.coords
+      [@latitude, @longitude] = [coords.latitude, coords.longitude]
+
   ### SVG plot (static) ###
   dom=$(domEl)
 

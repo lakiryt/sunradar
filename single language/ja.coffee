@@ -9,8 +9,10 @@
 ### 変更するべき箇所には星(⭐️)印をつけました。５つあるかと思います。 ###
 ### 翻訳できるパッセージには地球マーク(🌍)をつけました。お暇があればどうぞ。 ###
 
-longitude: 135 #⭐️経度。西経は負の値
-latitude: 35 #⭐️緯度。南緯は負の値
+findCoords: "manual" #⭐️緯度経度を自動検出する場合は"auto"。
+
+longitude: 135 #⭐️経度(自動検出しない場合)。西経は負の値
+latitude: 35 #⭐️緯度(自動検出しない場合)。南緯は負の値
 
 radius_svg: 72 #⭐️レーダーの半径(ピクセル単位)
 
@@ -122,6 +124,12 @@ render: (output)->"""
 
 
 afterRender: (domEl)->
+  ## Find cordinates automatically ##
+  if @findCoords == "auto"
+    geolocation.getCurrentPosition (e) =>
+      coords     = e.position.coords
+      [@latitude, @longitude] = [coords.latitude, coords.longitude]
+
   ### SVG plot (static) ###
   dom=$(domEl)
 

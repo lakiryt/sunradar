@@ -9,8 +9,10 @@
 ### Alles, was zu ändern ist, wurde mit einem Stern (⭐️) gekennzeichnet (es sollten 5 sein). ###
 ### Das Erde-Zeichen (🌍) kennzeichnet Stellen, die übersetzt werden könnten, wenn wer Lust dazu hat. ###
 
-longitude: 11 #⭐️Geographische Länge; negativ bei westlicher Länge
-latitude: 48 #⭐️Geographische Breite; negativ bei südlicher Breite
+findCoords: "manual" # "auto", um Koordinaten automatisch herauszufinden.
+
+longitude: 11 #⭐️Geographische Länge (falls auf manuell gestellt); negativ bei westlicher Länge
+latitude: 48 #⭐️Geographische Breite (falls auf manuell gestellt); negativ bei südlicher Breite
 
 radius_svg: 72 #⭐️Radius des Radars in Pixel
 
@@ -122,6 +124,12 @@ render: (output)->"""
 
 
 afterRender: (domEl)->
+  ## Find cordinates automatically ##
+  if @findCoords == "auto"
+    geolocation.getCurrentPosition (e) =>
+      coords     = e.position.coords
+      [@latitude, @longitude] = [coords.latitude, coords.longitude]
+
   ### SVG plot (static) ###
   dom=$(domEl)
 

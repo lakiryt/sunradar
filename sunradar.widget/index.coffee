@@ -292,11 +292,11 @@ update: (output, domEl)->
   jscontent+="<tr><td>"
   switch @language #🌍
     when "de"
-      jscontent+="Azimut"
+      jscontent+="Azimut:"
     when "ja"
       jscontent+="方位角"
     else
-      jscontent+="Azimuth"
+      jscontent+="Azimuth:"
   jscontent+="</td><td>"+Math.round(Azimuth*1000)/1000+"°</td></tr>"
 
 

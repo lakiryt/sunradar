@@ -11,11 +11,12 @@ An [Uebersicht](http://tracesof.net/uebersicht/) Widget displaying:
 - Azimuth of the sun
 - Sunrise time
 - Sunset time
+- SVG radar
 
-Preferences to be set by the user:
-- language (Currently available in English, Japanese and German)
-- coordinates (optionally)
-- radius of the radar
-- position of the widget (top/left margin)
+Preferences to be set by the user (in the *index.coffee* file):
+- Language (Currently available in English, Japanese and German)
+- Coordinates (if you want them manually set)
+- Radius of the radar
+- Position of the widget (top/left margin)
 
 The small circle marking the sun turns blue when the altitude is negative.

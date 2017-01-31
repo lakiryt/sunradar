@@ -11,7 +11,7 @@ An [Uebersicht](http://tracesof.net/uebersicht/) Widget displaying:
 - Azimuth of the sun
 - Sunrise time
 - Sunset time
-- SVG radar
+- Position of the sun plotted onto a radar
 
 Preferences to be set by the user (in the *index.coffee* file):
 - Language (Currently available in English, Japanese and German)

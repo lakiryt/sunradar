@@ -15,7 +15,8 @@ An [Uebersicht](http://tracesof.net/uebersicht/) Widget displaying:
 
 Preferences to be set by the user (in the *index.coffee* file):
 - Language (Currently available in English, Japanese and German)
-- Coordinates (if you want them manually set)
+- Whether you want to be located automatically or not
+- Coordinates, if you want them manually set
 - Radius of the radar
 - Position of the widget (top/left margin)
 

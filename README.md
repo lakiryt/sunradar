@@ -21,3 +21,8 @@ Preferences to be set by the user (in the *index.coffee* file):
 - Position of the widget (top/left margin)
 
 The small circle marking the sun turns blue when the altitude is negative.
+
+How to install:
+- Unzip
+- Move to the Uebersicht Folder
+- Should be working out of the box

@@ -19,7 +19,7 @@ How to install:
 - That's it! Should be working out of the box (out of the zip).
 
 Preferences to be set by the user (in the *index.coffee* file):
-- Language (Currently available in English, Japanese and German)
+- Language (English, Japanese or German)
 - Whether you want to be located automatically or not
 - Coordinates, if you want them manually set
 - Radius of the radar

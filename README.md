@@ -5,7 +5,7 @@
 An [Uebersicht](http://tracesof.net/uebersicht/) Widget displaying:
 
 - Days past since New Year
-- Timezone (set in the OS X preferences pane, not based on the coordinates)
+- Timezone (set in the preferences pane, not based on the coordinates)
 - Coordinates
 - Altitude of the sun
 - Azimuth of the sun

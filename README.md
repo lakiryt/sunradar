@@ -16,7 +16,7 @@ An [Uebersicht](http://tracesof.net/uebersicht/) Widget displaying:
 How to install:
 - Unzip
 - Move to the Uebersicht Folder
-- That's it! Should be working out of the box.
+- That's it! Should be working out of the box (out of the zip).
 
 Preferences to be set by the user (in the *index.coffee* file):
 - Language (Currently available in English, Japanese and German)

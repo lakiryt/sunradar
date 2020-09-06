@@ -37,7 +37,6 @@ style: """
   font-family: "Helvetica-light"
   font-size: 12px
   padding: 10px 20px
-  overflow: scroll
   box-sizing: border-box
   -webkit-backdrop-filter: blur(20px)
   -webkit-font-smoothing: antialiased

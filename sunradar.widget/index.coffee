@@ -67,13 +67,36 @@ command: """
   echo -n '{'
 
   # Difference to GMT in hours
-  h0=`TZ=GMT date "+%H"`
-  h1=`date "+%H"`
+  # Calculate in minutes to account for non-integer timezones:
+  h0=$((`TZ=GMT date "+%H"` * 60 + `TZ=GMT date "+%M"`))
+  h1=$((`date "+%H"` * 60 + `date "+%M"`))
   diff=`expr $h1 - $h0`
   if [ "${diff}" -lt "0" ]; then
-    diff=`expr 24 + ${diff}`
+    diff=`expr 1440 + ${diff}`
   fi
-  echo -n '"deltaT":'${diff}','
+  # calculate fractional part by case-construct
+  # (instead of doing it with e.g. float-operations)
+  rem=$(( $diff % 60 ))
+  case $rem in
+    15)
+        remInDecimal=".25"
+        ;;
+    30)
+        remInDecimal=".5"
+        ;;
+    45)
+        remInDecimal=".75"
+        ;;
+    *)
+        remInDecimal=""
+        ;;
+  esac
+  # Convert all variables back to hours
+  diff=$(( $diff / 60 ))
+  h1=$(( $h1 / 60 ))
+  h0=$(( $h0 / 60 ))
+  # Difference as decimal number
+  echo -n '"deltaT":'${diff}${remInDecimal}','
 
   # Currennt hours, minutes, seconds
   echo -n '"h":"'${h1}'",'
